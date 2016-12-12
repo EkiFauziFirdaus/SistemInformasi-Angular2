@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+<div *ngIf="produk">
+  <h2>{{produk.namaProduk}}</h2>
+  <div>
+    <label>Deskripsi Produk: </label>{{produk.deskripsiProduk}}
+  </div>
+  <div>
+    <label>Sisa Stok: </label>{{produk.stok}}
+  </div>
+  <div>
+    <button (click)="goBack()">Back</button>
+  </div>
+</div>

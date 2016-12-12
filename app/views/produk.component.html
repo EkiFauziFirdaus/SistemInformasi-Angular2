@@ -1,0 +1,6 @@
+<h2>{{title}}</h2>
+<ul class="listProduk">
+  <a *ngFor="let produk of listProduk" [routerLink]="['/detailProduk',produk.kodeProduk]">
+    <h4>{{produk.namaProduk}}</h4>
+  </a>
+</ul>
