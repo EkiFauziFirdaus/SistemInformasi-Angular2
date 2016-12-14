@@ -2,6 +2,9 @@
 <div *ngIf="produk">
   <h2>{{produk.namaProduk}}</h2>
   <div>
+    <img [src]="produk.gambar"/>
+  </div>
+  <div>
     <label>Deskripsi Produk: </label>{{produk.deskripsiProduk}}
   </div>
   <div>
