@@ -1,2 +1,13 @@
 <h2>{{title}}</h2>
+<div class="row">
+  <div>
+    <carousel [interval]="carouselInterval" [noWrap]="noWrapSlides">
+      <slide *ngFor="let slide of slideProduk" [active]="slide.active">
+        <img [src]="slide.gambar" class="img-responsive center-block">
+        <div class="carousel-caption">
+          <p>{{slide.namaProduk}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
   <produk-component></produk-component>

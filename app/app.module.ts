@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './services/in-memory-data.service';
+import { CarouselModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent }  from './app.component';
 import { ProdukService } from './services/produk.service';
@@ -26,7 +27,8 @@ import { DetailProdukComponent } from './components/detail-produk.component';
         path:'',
         component: DashboardComponent
       }
-    ])
+    ]),
+    CarouselModule
   ],
   declarations: [
     AppComponent,
