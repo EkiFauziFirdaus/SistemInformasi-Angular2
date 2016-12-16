@@ -5,7 +5,10 @@ import { RouterModule } from '@angular/router';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './services/in-memory-data.service';
+
+/*ng2-bootstrap component*/
 import { CarouselModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent }  from './app.component';
 import { ProdukService } from './services/produk.service';
@@ -28,7 +31,8 @@ import { DetailProdukComponent } from './components/detail-produk.component';
         component: DashboardComponent
       }
     ]),
-    CarouselModule
+    CarouselModule,
+    TabsModule
   ],
   declarations: [
     AppComponent,

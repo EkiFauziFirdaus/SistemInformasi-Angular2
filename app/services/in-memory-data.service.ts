@@ -11,6 +11,10 @@ export class InMemoryDataService implements InMemoryDbService {
       { kodeProduk: 'HP007', kodeMerk: 'HPSONY', namaProduk: 'Sony Xperia Z', material: 'Besi', deskripsiProduk: 'Handphone Sony Xperia Z', negaraPemroduksi: 'Jepang', gambar: '../app/assets/img/produk/sony/XperiaZ.jpg', stok: 100},
       { kodeProduk: 'HP008', kodeMerk: 'HPSONY', namaProduk: 'Sony Xperia Z1', material: 'Besi', deskripsiProduk: 'Handphone Sony Xperia Z1', negaraPemroduksi: 'Jepang', gambar: '../app/assets/img/produk/sony/XperiaZ1.jpg', stok: 100}
     ];
-    return {produk};
+    let merek = [
+      { kodeMerk: 'HPSAMSUNG', namaMerk: 'Samsung'},
+      { kodeMerk: 'HPSONY', namaMerk: 'Sony'}
+    ];
+    return {produk,merek};
   }
 }

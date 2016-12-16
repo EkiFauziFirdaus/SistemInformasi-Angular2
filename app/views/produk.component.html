@@ -1,7 +1,11 @@
 <h2>{{title}}</h2>
-<ul class="listProduk">
-  <a *ngFor="let produk of listProduk" [routerLink]="['/detailProduk',produk.kodeProduk]">
-    <h4>{{produk.namaProduk}}</h4>
-    <img [src]="produk.gambar"/>
-  </a>
-</ul>
+<div class="row">
+  <ul class="listProduk">
+    <a *ngFor="let produk of listProduk" [routerLink]="['/detailProduk',produk.kodeProduk]">
+      <div class="col-sm-3">
+        <h4>{{produk.namaProduk}}</h4>
+        <img [src]="produk.gambar"/>
+      </div>
+    </a>
+  </ul>
+</div>
