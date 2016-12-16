@@ -11,10 +11,13 @@ import { CarouselModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent }  from './app.component';
-import { ProdukService } from './services/produk.service';
 import { ProdukComponent } from './components/produk.component';
 import { DashboardComponent } from './components/dashboard.component';
 import { DetailProdukComponent } from './components/detail-produk.component';
+
+/*Services*/
+import { ProdukService } from './services/produk.service';
+import { MerekService } from './services/merek.service';
 
 @NgModule({
   imports:[
@@ -41,7 +44,8 @@ import { DetailProdukComponent } from './components/detail-produk.component';
     DetailProdukComponent
   ],
   providers: [
-    ProdukService
+    ProdukService,
+    MerekService
   ],
   bootstrap: [
     AppComponent
