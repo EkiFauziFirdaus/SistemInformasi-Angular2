@@ -9,6 +9,7 @@ import { InMemoryDataService }  from './services/in-memory-data.service';
 /*ng2-bootstrap component*/
 import { CarouselModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { DropdownModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent }  from './app.component';
 import { ProdukComponent } from './components/produk.component';
@@ -35,7 +36,8 @@ import { MerekService } from './services/merek.service';
       }
     ]),
     CarouselModule,
-    TabsModule
+    TabsModule,
+    DropdownModule
   ],
   declarations: [
     AppComponent,
