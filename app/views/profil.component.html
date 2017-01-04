@@ -4,10 +4,10 @@
     <div class="col-sm-12">
       <nav class="navbar navbar-default navbar-fixed-side">
         <ul class="nav navbar-nav">
-          <li><a [routerLink]="['akunSaya']">AKUN SAYA</a></li>
-          <li><a [routerLink]="['daftarKeinginan']">KEINGINAN</a></li>
-          <li><a [routerLink]="['daftarPesanan']">PESANAN</a></li>
-          <li><a [routerLink]="['riwayatTransaksi']">RIWAYAT TRANSAKSI</a></li>
+          <li [routerLinkActive]="['active']"><a [routerLink]="['akunSaya']">AKUN SAYA</a></li>
+          <li [routerLinkActive]="['active']"><a [routerLink]="['daftarKeinginan']">KEINGINAN</a></li>
+          <li [routerLinkActive]="['active']"><a [routerLink]="['daftarPesanan']">PESANAN</a></li>
+          <li [routerLinkActive]="['active']"><a [routerLink]="['riwayatTransaksi']">RIWAYAT TRANSAKSI</a></li>
         </ul>
       </nav>
     </div>
