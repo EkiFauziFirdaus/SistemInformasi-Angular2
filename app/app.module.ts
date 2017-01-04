@@ -15,6 +15,11 @@ import { AppComponent }  from './app.component';
 import { ProdukComponent } from './components/produk.component';
 import { DashboardComponent } from './components/dashboard.component';
 import { DetailProdukComponent } from './components/detail-produk.component';
+import { ProfilComponent } from './components/profil.component';
+import { InformasiAkunComponent } from './components/informasi-akun.component';
+import { DaftarKeinginanComponent } from './components/daftar-keinginan.component';
+import { DaftarPesananComponent } from './components/daftar-pesanan.component';
+import { RiwayatTransaksiComponent } from './components/riwayat-transaksi.component';
 
 /*Services*/
 import { ProdukService } from './services/produk.service';
@@ -33,6 +38,18 @@ import { MerekService } from './services/merek.service';
       {
         path:'',
         component: DashboardComponent
+      },
+      {
+        path:'profil',
+        component: ProfilComponent,
+        children:
+        [
+          {path: '', redirectTo: 'akunSaya', pathMatch: 'full'},
+          {path: 'akunSaya', component: InformasiAkunComponent},
+          {path: 'daftarKeinginan', component: DaftarKeinginanComponent},
+          {path: 'daftarPesanan', component: DaftarPesananComponent},
+          {path: 'riwayatTransaksi', component: RiwayatTransaksiComponent}
+        ]
       }
     ]),
     CarouselModule,
@@ -43,7 +60,12 @@ import { MerekService } from './services/merek.service';
     AppComponent,
     ProdukComponent,
     DashboardComponent,
-    DetailProdukComponent
+    DetailProdukComponent,
+    ProfilComponent,
+    InformasiAkunComponent,
+    DaftarKeinginanComponent,
+    DaftarPesananComponent,
+    RiwayatTransaksiComponent
   ],
   providers: [
     ProdukService,

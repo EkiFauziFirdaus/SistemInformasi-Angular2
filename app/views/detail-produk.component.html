@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-top:50px">
   <h2>{{title}}</h2>
   <div *ngIf="produk">
 
@@ -11,6 +11,10 @@
       <div class="col-sm-4">
         <label>Rp xxx.xxx</label><br>
         <label>Deskripsi Produk: </label>{{produk.deskripsiProduk}}
+      </div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-primary">Masukkan ke Pesanan</button>
+          <button type="button" class="btn btn-primary">Tambahkan ke Keinginan</button>
       </div>
     </div>
 

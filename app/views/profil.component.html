@@ -1,0 +1,18 @@
+<div class="container" style="padding-top:50px">
+  <div class="row">
+    <h1>Profil</h1>
+    <div class="col-sm-12">
+      <nav class="navbar navbar-default navbar-fixed-side">
+        <ul class="nav navbar-nav">
+          <li><a [routerLink]="['akunSaya']">AKUN SAYA</a></li>
+          <li><a [routerLink]="['daftarKeinginan']">KEINGINAN</a></li>
+          <li><a [routerLink]="['daftarPesanan']">PESANAN</a></li>
+          <li><a [routerLink]="['riwayatTransaksi']">RIWAYAT TRANSAKSI</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-sm-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
