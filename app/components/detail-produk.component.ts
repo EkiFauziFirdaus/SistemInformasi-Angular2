@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-
-
-import 'rxjs/add/operator/switchMap';
 
 import { Produk } from '../models/produk.model';
 import { ProdukService } from '../services/produk.service'
@@ -17,7 +16,6 @@ import { ProdukService } from '../services/produk.service'
 export class DetailProdukComponent implements OnInit{
   title = 'Detail Produk';
 
-  @Input()
   produk: Produk;
 
   constructor(
@@ -27,9 +25,7 @@ export class DetailProdukComponent implements OnInit{
 
 
   ngOnInit():void{
-    this.route.params
-    .switchMap((params:Params) => this.produkService.getProduk(params['kodeProduk']))
-    .subscribe(produk => this.produk = produk);
+    this.produkService.getProduk(this.route.snapshot.params['kodeProduk']).then(produk => this.produk = produk);
   }
   goBack(): void {
     this.location.back();

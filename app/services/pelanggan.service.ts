@@ -3,12 +3,12 @@ import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Merek } from '../models/merek.model';
+import { Pelanggan } from '../models/pelanggan.model';
 
 @Injectable()
-export class MerekService{
+export class PelangganService{
 
-  private apiUrl = '/api/merek';
+  private apiUrl = '/api/pelanggan';
 
   constructor(private http:Http){}
 
@@ -18,7 +18,7 @@ export class MerekService{
     return Promise.reject(error.message || error);
   }
 
-  getListMerek(): Promise<Merek[]> {
-    return this.http.get(this.apiUrl).map((response: Response) => response.json()).toPromise().catch(this.handleError);
+  getDetailPelanggan(email: string): Promise<Pelanggan> {
+    return this.http.get(this.apiUrl+'/'+email).map((response: Response) => response.json()).toPromise().catch(this.handleError);
   }
 }

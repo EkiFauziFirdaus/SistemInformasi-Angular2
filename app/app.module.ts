@@ -1,7 +1,12 @@
+
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
 import { RouterModule } from '@angular/router';
+
+import { fakeBackendProvider } from './services/index';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './services/in-memory-data.service';
@@ -25,6 +30,10 @@ import { RiwayatTransaksiComponent } from './components/riwayat-transaksi.compon
 /*Services*/
 import { ProdukService } from './services/produk.service';
 import { MerekService } from './services/merek.service';
+import { PelangganService } from './services/pelanggan.service';
+
+/*Fake Backend*/
+
 
 @NgModule({
   imports:[
@@ -71,7 +80,11 @@ import { MerekService } from './services/merek.service';
   ],
   providers: [
     ProdukService,
-    MerekService
+    MerekService,
+    PelangganService,
+    fakeBackendProvider,
+        MockBackend,
+        BaseRequestOptions
   ],
   bootstrap: [
     AppComponent

@@ -1,3 +1,38 @@
 <div class="container">
-  <h1>AKUN SAYA</h1>
+  <div class="row">
+    <div class="col-sm-12 pull-right">
+      <div class="row">
+        <div class="col-sm-11"><h1>INFORMASI KONTAK</h1></div>
+        <div class="col-sm-1"><button type="button" class="btn btn-primary">Ubah</button></div>
+      </div>
+
+
+      <div *ngIf="pelanggan">
+        <table class="table table-condensed">
+          <tbody>
+            <tr>
+              <td>Nama</td>
+              <td>: {{pelanggan.namaLengkap}}</td>
+            </tr>
+            <tr>
+              <td>Tanggal Lahir:</td>
+              <td>: {{pelanggan.tanggalLahir}}</td>
+            </tr>
+            <tr>
+              <td>Nomor Telepon</td>
+              <td>: {{pelanggan.nomorHP}}</td>
+            </tr>
+            <tr>
+              <td>Posel</td>
+              <td>: {{pelanggan.email}}</td>
+            </tr>
+            <tr>
+              <td>Kata Sandi</td>
+              <td><input type="password" value="{{pelanggan.kataSandi}}" class="form-control" readonly></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

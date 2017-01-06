@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -8,7 +8,7 @@ import { Produk } from '../models/produk.model';
 @Injectable()
 export class ProdukService{
 
-  private apiUrl = 'app/produk';
+  private apiUrl = '/api/produk';
 
   constructor(private http:Http){}
 
@@ -19,10 +19,12 @@ export class ProdukService{
   }
 
   getListProduk(): Promise<Produk[]> {
-    return this.http.get(this.apiUrl).toPromise().then(response => response.json().data as Produk[]).catch(this.handleError);
+    return this.http.get(this.apiUrl).map((response: Response) => response.json()).toPromise().catch(this.handleError);
   }
 
   getProduk(kodeProduk: string): Promise<Produk>{
-    return this.getListProduk().then(listProduk => listProduk.find(produk => produk.kodeProduk===kodeProduk));
+    //return this.getListProduk().then(listProduk => listProduk.find(produk => produk.kodeProduk===kodeProduk));
+    return this.http.get(this.apiUrl+'/'+kodeProduk).map((response: Response) => response.json()).toPromise().catch(this.handleError);
+
   }
 }

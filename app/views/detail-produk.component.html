@@ -1,46 +1,47 @@
-<div class="container" style="padding-top:50px">
-  <h2>{{title}}</h2>
-  <div *ngIf="produk">
 
-    <!--BAGIAN GAMBAR DAN DETIL PRODUK-->
-    <div class="row">
-      <h2>{{produk.namaProduk}}</h2>
-      <div class="col-sm-4">
-        <img [src]="produk.gambar"/>
-      </div>
-      <div class="col-sm-4">
-        <label>Rp xxx.xxx</label><br>
-        <label>Deskripsi Produk: </label>{{produk.deskripsiProduk}}
-      </div>
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-primary">Masukkan ke Pesanan</button>
-          <button type="button" class="btn btn-primary">Tambahkan ke Keinginan</button>
-      </div>
-    </div>
+  <div class="container" style="padding-top:50px">
+    <h2>{{title}}</h2>
+    <div *ngIf="produk">
 
-    <!--BAGIAN TAB-->
-    <div class="row">
-      <tabset [justified]="true">
-        <tab heading="Rincian" style="height:150px">
-          <label>Kode Produk: </label>{{produk.kodeProduk}}<br>
-          <label>Sisa Stok: </label>{{produk.stok}}<br>
-        </tab>
-        <tab heading="Detail Ukuran" style="height:150px">
-          Detail Ukuran
-        </tab>
-        <tab heading="Review" style="height:150px">
-          Review
-        </tab>
-        <tab heading="Kebijakan Pengembalian" style="height:150px">
-          Kebijakan Pengembalian
-        </tab>
-        <tab heading="Info Pengembalian" style="height:150px">
-          Info Pengembalian
-        </tab>
-      </tabset>
-    </div>
-    <div>
-      <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+      <!--BAGIAN GAMBAR DAN DETIL PRODUK-->
+      <div class="row">
+        <h2>{{produk.namaProduk}}</h2>
+        <div class="col-sm-4">
+          <img [src]="produk.gambar"/>
+        </div>
+        <div class="col-sm-4">
+          <label>Rp xxx.xxx</label><br>
+          <label>Deskripsi Produk: </label>{{produk.deskripsiProduk}}
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-primary">Masukkan ke Pesanan</button>
+            <button type="button" class="btn btn-primary">Tambahkan ke Keinginan</button>
+        </div>
+      </div>
+
+      <!--BAGIAN TAB-->
+      <div class="row">
+        <tabset [justified]="true">
+          <tab heading="Rincian" style="height:150px">
+            <label>Kode Produk: </label>{{produk.kodeProduk}}<br>
+            <label>Sisa Stok: </label>{{produk.stok}}<br>
+          </tab>
+          <tab heading="Detail Ukuran" style="height:150px">
+            Detail Ukuran
+          </tab>
+          <tab heading="Review" style="height:150px">
+            Review
+          </tab>
+          <tab heading="Kebijakan Pengembalian" style="height:150px">
+            Kebijakan Pengembalian
+          </tab>
+          <tab heading="Info Pengembalian" style="height:150px">
+            Info Pengembalian
+          </tab>
+        </tabset>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+      </div>
     </div>
   </div>
-</div>
