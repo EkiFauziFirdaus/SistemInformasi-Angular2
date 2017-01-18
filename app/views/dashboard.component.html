@@ -1,27 +1,10 @@
+
 <div class="container" style="padding-top:50px">
-  <h2>{{title}}</h2>
-  <div class="row">
-    <div class="col-sm-12">
-      <carousel [interval]="carouselInterval" [noWrap]="noWrapSlides">
-        <slide *ngFor="let slide of slideProduk" [active]="slide.active">
-          <a [routerLink]="['/detailProduk',slide.kodeProduk]">
-            <img [src]="slide.gambar" class="img-responsive center-block" width="128px">
-          </a>
-          <div class="carousel-caption">
-            <p>{{slide.namaProduk}}</p>
-          </div>
-        </slide>
-      </carousel>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <a *ngFor="let merek of listMerek">
-      <div class="col-md-1" style="padding-top:20px">
-        <label>{{merek.namaMerk}}</label>
+    <div class="row">
+      <div class="col-sm-12">
+        <div *ngIf="slideProduk">
+          <h1>Dashboard</h1>
+        </div>
       </div>
-    </a>
-  </div>
-  <produk-component></produk-component>
+    </div>
 </div>

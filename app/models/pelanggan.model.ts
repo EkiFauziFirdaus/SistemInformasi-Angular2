@@ -1,7 +1,7 @@
 export class Pelanggan {
   email: string;
-  namaLengkap: string;
-  tanggalLahir: string;
-  nomorHP: string;
-  kataSandi: string;
+  nama_lengkap: string;
+  tanggal_lahir: string;
+  nomor_hp: string;
+  kata_sandi: string;
 }

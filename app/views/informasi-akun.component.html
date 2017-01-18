@@ -1,26 +1,24 @@
-<div class="container">
+<div class="container" style="padding-top:10px">
   <div class="row">
-    <div class="col-sm-12 pull-right">
+    <div class="col-sm-9">
       <div class="row">
         <div class="col-sm-11"><h1>INFORMASI KONTAK</h1></div>
-        <div class="col-sm-1"><button type="button" class="btn btn-primary">Ubah</button></div>
+        <div class="col-sm-1" style="padding-top:20px"><button type="button" class="btn btn-primary">Ubah</button></div>
       </div>
-
-
       <div *ngIf="pelanggan">
         <table class="table table-condensed">
           <tbody>
             <tr>
               <td>Nama</td>
-              <td>: {{pelanggan.namaLengkap}}</td>
+              <td>: {{pelanggan.nama_lengkap}}</td>
             </tr>
             <tr>
               <td>Tanggal Lahir:</td>
-              <td>: {{pelanggan.tanggalLahir}}</td>
+              <td>: {{pelanggan.tanggal_lahir}}</td>
             </tr>
             <tr>
               <td>Nomor Telepon</td>
-              <td>: {{pelanggan.nomorHP}}</td>
+              <td>: {{pelanggan.nomor_hp}}</td>
             </tr>
             <tr>
               <td>Posel</td>
@@ -28,7 +26,7 @@
             </tr>
             <tr>
               <td>Kata Sandi</td>
-              <td><input type="password" value="{{pelanggan.kataSandi}}" class="form-control" readonly></td>
+              <td><input type="password" value="{{pelanggan.kata_sandi}}" class="form-control" readonly></td>
             </tr>
           </tbody>
         </table>

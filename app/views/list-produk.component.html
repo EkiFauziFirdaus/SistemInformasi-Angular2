@@ -1,0 +1,22 @@
+<div class="container" style="padding-top:50px">
+  <div class="row">
+    <h1>Daftar Produk</h1>
+    <div class="col-sm-2" style="background: #F8F8FF">
+      Berdasarkan Kategori:<br>
+      <div *ngIf="listKategori">
+        <a *ngFor="let kategori of listKategori" [routerLink]="['/list-produk/kategori',kategori.kode_kategori]">
+          <label>{{kategori.nama_kategori}}</label><br>
+        </a>
+      </div>
+      <br>Berdasarkan Merek:
+      <div *ngIf="listMerek">
+        <a *ngFor="let merek of listMerek" [routerLink]="['/list-produk/merek',merek.kode_merek]">
+          <label>{{merek.nama_merek}}</label><br>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

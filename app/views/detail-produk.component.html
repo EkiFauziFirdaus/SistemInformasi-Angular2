@@ -1,21 +1,36 @@
 
   <div class="container" style="padding-top:50px">
     <h2>{{title}}</h2>
-    <div *ngIf="produk">
+    <div *ngIf="detailProduk">
 
       <!--BAGIAN GAMBAR DAN DETIL PRODUK-->
       <div class="row">
-        <h2>{{produk.namaProduk}}</h2>
+        <h2>{{detailProduk.nama_produk}}</h2>
         <div class="col-sm-4">
-          <img [src]="produk.gambar"/>
+          <img [src]="detailProduk.gambar" class="img-responsive center-block"/>
         </div>
         <div class="col-sm-4">
-          <label>Rp xxx.xxx</label><br>
-          <label>Deskripsi Produk: </label>{{produk.deskripsiProduk}}
+          <label>Harga: Rp.{{harga}}</label><br>
+          <label>Deskripsi Produk: </label>{{detailProduk.deskripsi_produk}}
         </div>
         <div class="col-sm-4">
-          <button type="button" class="btn btn-primary">Masukkan ke Pesanan</button>
-            <button type="button" class="btn btn-primary">Tambahkan ke Keinginan</button>
+          <button type="button" class="btn btn-primary" [routerLink]="['/pesanan']">Masukkan ke Pesanan</button>
+            <button type="button" class="btn btn-primary" (click)="addToWishlist(detailProduk.kode_produk,'cendzpm@gmail.com');daftarKeinginanModal.show()">Tambahkan ke Keinginan</button>
+            <div bsModal #daftarKeinginanModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Wishlist</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="daftarKeinginanModal.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    {{detailProduk.nama_produk}} Telah ditambahkan kedalam Daftar Keinginan Anda.
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
 
@@ -23,8 +38,8 @@
       <div class="row">
         <tabset [justified]="true">
           <tab heading="Rincian" style="height:150px">
-            <label>Kode Produk: </label>{{produk.kodeProduk}}<br>
-            <label>Sisa Stok: </label>{{produk.stok}}<br>
+            <label>Kode Produk: </label>{{detailProduk.kode_produk}}<br>
+            <label>Sisa Stok: </label>{{detailProduk.stok}}<br>
           </tab>
           <tab heading="Detail Ukuran" style="height:150px">
             Detail Ukuran

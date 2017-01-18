@@ -1,17 +1,25 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <h2>{{title}}</h2>
+  <div *ngIf="listProduk">
+    <div class="row">
+      <div class="col-sm-12">
+      </div>
     </div>
-  </div>
-  <div class="row">
-      <ul class="listProduk">
-        <a *ngFor="let produk of listProduk" [routerLink]="['/detailProduk',produk.kodeProduk]">
+    <div class="row">
+      <ul class="list-unstyled">
+        <li *ngFor="let produk of listProduk">
           <div class="col-sm-3">
-            <h4>{{produk.namaProduk}}</h4>
-            <img [src]="produk.gambar"/>
+            <a [routerLink]="['/detail-produk',produk.kode_produk]">
+              <h4 class="text-center">{{produk.nama_produk}}</h4>
+              <img [src]="produk.gambar" class="img-responsive center-block" height="70%"/>
+            </a>
+            <div *ngIf="produk.besar_diskon > 0">
+              <h5 class="text-center">Diskon {{produk.besar_diskon}}%</h5>
+              <h5 class="text-center"><del>Rp. {{produk.harga}}</del></h5>
+            </div>
+            <h5 class="text-center">Rp. {{produk.harga-(produk.harga*(produk.besar_diskon/100))}}</h5>
           </div>
-        </a>
+        </li>
       </ul>
+    </div>
   </div>
 </div>

@@ -4,12 +4,12 @@ import { PelangganService } from '../services/pelanggan.service';
 import { DaftarPesanan } from '../models/daftar-pesanan.model';
 
 @Component({
-  selector: 'daftar-pesanan-component',
+  selector: 'pesanan-component',
   moduleId: module.id,
-  templateUrl: '../views/daftar-pesanan.component.html',
+  templateUrl: '../views/pesanan.component.html',
 })
 
-export class DaftarPesananComponent implements OnInit{
+export class PesananComponent implements OnInit{
 
   daftarPesanan:DaftarPesanan[];
 

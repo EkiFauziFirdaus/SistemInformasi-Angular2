@@ -1,3 +1,30 @@
-<div class="container">
-  <h1>PESANAN</h1>
-</div>
+<div class="container" style="padding-top:10px">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-11"><h1>PRODUK PESANAN</h1></div>
+        <div class="col-sm-1"><button type="button" class="btn btn-primary">Beli Produk Pesanan</button></div>
+        <div *ngIf="daftarPesanan">
+          <div *ngFor="let item of daftarPesanan">
+
+            <table class="table table-condensed">
+              <tbody>
+                <tr>
+                  <td>Kode Pesanan: {{item.kode_pesanan}}</td>
+                </tr>
+                <tr>
+                  <td>PRODUK</td>
+                  <td>TANGGAL</td>
+                  <td>JUMLAH PESANAN</td>
+                  <td>TOTAL</td>
+                </tr>
+                <tr *ngFor="let barang of item.barangpesanan">
+                  <td><a [routerLink]="['/detail-produk',barang.kode_produk]"><img [src]="barang.gambar" width="20%"/> {{barang.nama_produk}}</a></td>
+                  <td>{{item.waktu_pesanan}}</td>
+                  <td>{{barang.kuantitas}}</td>
+                  <td>Rp.{{barang.kuantitas*barang.harga}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>

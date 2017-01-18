@@ -1,0 +1,98 @@
+<div class="container" style="padding-top:80px">
+    <div class="row">
+
+      <!-- FORM IKLAN -->
+      <div class="col-sm-8" style="background: #F8F8FF">
+      <br>
+      <br>
+      GAMBAR
+      <br>
+      <br>
+      <br>
+      <br>
+      </div>
+
+      <!-- FORM VOUCHER -->
+      <div class="col-sm-4" >
+        <div class="col-sm-12" style="background: #F8F8FF">
+          <br> MASUKKAN KODE VOUCHER: <br>
+            <div class="form-group">
+              <div class="col-sm-8" >
+                <br>
+                <input type="text" class="form-control" id="usr">
+                <br>
+              </div>
+              <div class="col-sm-4" >
+                <br>
+                <button type="button" class="btn btn-primary" style="background: green">PILIH</button>
+              </div>
+              <br>
+            </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>DAFTAR PESANAN SAYA</h3>
+
+          <!-- FORM DAFTAR LIST BARANG PESANAN -->
+          <div class="col-sm-8">
+            <div *ngIf="daftarPesanan">
+              <div *ngFor="let item of daftarPesanan">
+
+                <table class="table table-condensed">
+                  <tbody>
+                    <tr>
+                      <td>Kode Pesanan: {{item.kode_pesanan}}</td>
+                    </tr>
+                    <tr>
+                      <td>PRODUK</td>
+                      <td>TANGGAL</td>
+                      <td>JUMLAH PESANAN</td>
+                      <td>TOTAL</td>
+                    </tr>
+                    <tr *ngFor="let barang of item.barangpesanan">
+                      <td><a [routerLink]="['/detail-produk',barang.kode_produk]"><img [src]="barang.gambar" width="20%"/> {{barang.nama_produk}}</a></td>
+                      <td>{{item.waktu_pesanan}}</td>
+                      <td>{{barang.kuantitas}}</td>
+                      <td>Rp.{{barang.kuantitas*barang.harga}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+      <!-- FORM TOTAL BELANJA -->
+      <div class="col-sm-4" >
+        <div class="col-sm-12" style="background: #F8F8FF">
+          <br> TOTAL BELANJA: <br><br>
+               BIAYA PENGIRIMAN: GRATIS <br><br>
+               JUMLAH TOTAL <br>
+            <div class="form-group">
+              <div class="col-sm-2" >
+              </div>
+              <div class="col-sm-8" >
+                <br>
+                <button type="button" class="btn btn-primary" style="background: black" [routerLink]="['/PembayaranProduk']">SELESAI MEMESAN ></button>
+              </div>
+              <div class="col-sm-2" >
+              </div>
+              <br>
+            </div>
+            <br>
+            <div class="form-group">
+              <div class="col-sm-2" >
+              </div>
+              <div class="col-sm-8" >
+                <button type="button" class="btn btn-primary" style="background: grey">LANJUT MEMESAN ></button>
+              </div>
+              <div class="col-sm-2" >
+              </div>
+              <br>
+            </div>
+            <br><br>
+      </div>
+      </div>
+    </div>
+</div>

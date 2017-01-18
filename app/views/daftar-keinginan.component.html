@@ -1,3 +1,28 @@
-<div class="container">
-  <h1>KEINGINAN</h1>
+<div class="container" style="padding-top:10px">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-11"><h1>PRODUK KEINGINAN</h1></div>
+        <div class="col-sm-1" style="padding-top:20px"><button type="button" class="btn btn-primary">Beli Produk Keinginan</button></div>
+        <div *ngIf="daftarKeinginan">
+          <table class="table table-condensed">
+            <tbody>
+              <tr>
+                <td>PRODUK</td>
+                <td>TANGGAL</td>
+                <td>KETERSEDIAAN</td>
+                <td>HARGA</td>
+              </tr>
+              <tr *ngFor="let item of daftarKeinginan">
+                <td><a [routerLink]="['/detail-produk',item.kode_produk]"><img [src]="item.gambar" width="20%"/> {{item.nama_produk}}</a></td>
+                <td>{{item.tanggal_terdaftar}}</td>
+                <td>STOK {{item.stok}}</td>
+                <td>RP.{{item.harga}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

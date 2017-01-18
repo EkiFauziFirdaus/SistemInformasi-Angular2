@@ -1,17 +1,17 @@
-<div class="container" style="padding-top:50px">
+<div class="container" style="padding-top:90px">
   <div class="row">
-    <h1>Profil</h1>
-    <div class="col-sm-12">
+    <div class="col-sm-3">
+      <h1>Profil</h1>
       <nav class="navbar navbar-default navbar-fixed-side">
-        <ul class="nav navbar-nav">
-          <li [routerLinkActive]="['active']"><a [routerLink]="['akunSaya']">AKUN SAYA</a></li>
-          <li [routerLinkActive]="['active']"><a [routerLink]="['daftarKeinginan']">KEINGINAN</a></li>
-          <li [routerLinkActive]="['active']"><a [routerLink]="['daftarPesanan']">PESANAN</a></li>
-          <li [routerLinkActive]="['active']"><a [routerLink]="['riwayatTransaksi']">RIWAYAT TRANSAKSI</a></li>
+        <ul class="nav nav-pills nav-stacked">
+          <li [routerLinkActive]="['active']"><a [routerLink]="['akun-saya']">AKUN SAYA</a></li>
+          <li [routerLinkActive]="['active']"><a [routerLink]="['daftar-keinginan']">KEINGINAN</a></li>
+          <li [routerLinkActive]="['active']"><a [routerLink]="['daftar-pesanan']">PESANAN</a></li>
+          <li [routerLinkActive]="['active']"><a [routerLink]="['riwayat-transaksi']">RIWAYAT TRANSAKSI</a></li>
         </ul>
       </nav>
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-9">
       <router-outlet></router-outlet>
     </div>
   </div>

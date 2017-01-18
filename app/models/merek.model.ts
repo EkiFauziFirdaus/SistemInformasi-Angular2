@@ -1,4 +1,4 @@
 export class Merek {
-  kodeMerk : string;
-  namaMerk : string;
+  kode_merek : string;
+  nama_merek : string;
 }
