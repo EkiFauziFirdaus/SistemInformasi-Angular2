@@ -24,7 +24,18 @@ import { Kategori } from './models/kategori.model';
       </div>
 
       <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
-        <ul class="nav navbar-nav navbar-right">
+
+            <ul class="nav navbar-nav navbar-right">
+
+            <div class="col-md-8" style="padding-top:8px">
+            <form action="" class="search-form">
+                <div class="form-group has-feedback">
+                <label for="search" class="sr-only">Search</label>
+                <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </form>
+            </div>
           <div class="btn-group" dropdown keyboardNav="true">
             <button id="menu" type="button" class="btn btn-default navbar-btn" dropdownToggle>Menu <span class="caret"></span></button>
               <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="menu">
@@ -63,6 +74,7 @@ import { Kategori } from './models/kategori.model';
   <router-outlet></router-outlet>
   </div>
   `,
+  styleUrls: ['/app/views/search.css']
 })
 export class AppComponent implements OnInit{
 

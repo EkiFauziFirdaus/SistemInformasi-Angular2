@@ -15,7 +15,7 @@
       <!-- FORM VOUCHER -->
       <div class="col-sm-4" >
         <div class="col-sm-12" style="background: #F8F8FF">
-          <br> MASUKKAN KODE VOUCHER: <br>
+          <br> <div style="text-align:center"> MASUKKAN KODE VOUCHER </div>
             <div class="form-group">
               <div class="col-sm-8" >
                 <br>
@@ -66,15 +66,16 @@
       <!-- FORM TOTAL BELANJA -->
       <div class="col-sm-4" >
         <div class="col-sm-12" style="background: #F8F8FF">
+
           <br> TOTAL BELANJA: <br><br>
                BIAYA PENGIRIMAN: GRATIS <br><br>
-               JUMLAH TOTAL <br>
+               JUMLAH TOTAL: <br>
             <div class="form-group">
               <div class="col-sm-2" >
               </div>
               <div class="col-sm-8" >
                 <br>
-                <button type="button" class="btn btn-primary" style="background: black" [routerLink]="['/PembayaranProduk']">SELESAI MEMESAN ></button>
+                <button type="button" class="btn btn-primary" style="background: black" [routerLink]="['/pembayaran']">SELESAI MEMESAN ></button>
               </div>
               <div class="col-sm-2" >
               </div>
@@ -84,8 +85,8 @@
             <div class="form-group">
               <div class="col-sm-2" >
               </div>
-              <div class="col-sm-8" >
-                <button type="button" class="btn btn-primary" style="background: grey">LANJUT MEMESAN ></button>
+              <div class="col-sm-8">
+                <button type="button" class="btn btn-primary" style="background: grey" [routerLink]="['/list-produk/kategori','16001']">LANJUT MEMESAN ></button>
               </div>
               <div class="col-sm-2" >
               </div>
@@ -94,5 +95,5 @@
             <br><br>
       </div>
       </div>
-    </div>
+
 </div>

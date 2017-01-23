@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { FormsModule }   from '@angular/forms';
 
 import { fakeBackendProvider } from './services/index';
 import { MockBackend, MockConnection } from '@angular/http/testing';
@@ -17,6 +18,8 @@ import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { DropdownModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { PopoverModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent }  from './app.component';
 import { DashboardComponent } from './components/dashboard.component';
@@ -30,6 +33,7 @@ import { ListProdukComponent } from './components/list-produk.component';
 import { ListProdukByKategoriComponent } from './components/list-produk-by-kategori.component';
 import { ListProdukByMerekComponent } from './components/list-produk-by-merek.component';
 import { PesananComponent } from './components/pesanan.component';
+import { PembayaranComponent } from './components/pembayaran.component';
 
 /*Services*/
 import { ProdukService } from './services/produk.service';
@@ -43,6 +47,7 @@ import { KategoriService } from './services/kategori.service'
 @NgModule({
   imports:[
     BrowserModule,
+    FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
@@ -71,6 +76,7 @@ import { KategoriService } from './services/kategori.service'
         component : ListProdukComponent,
         children:
         [
+          {path: '', redirectTo: 'kategori/:kode_kategori', pathMatch: 'full'},
           {path:'kategori/:kode_kategori', component: ListProdukByKategoriComponent},
           {path: 'merek/:kode_merek', component: ListProdukByMerekComponent}
         ]
@@ -78,12 +84,18 @@ import { KategoriService } from './services/kategori.service'
       {
         path: 'pesanan',
         component: PesananComponent
+      },
+      {
+        path: 'pembayaran',
+        component: PembayaranComponent
       }
     ]),
     TabsModule.forRoot(),
     DropdownModule.forRoot(),
     CollapseModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AccordionModule.forRoot(),
+    PopoverModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -97,7 +109,8 @@ import { KategoriService } from './services/kategori.service'
     ListProdukComponent,
     ListProdukByKategoriComponent,
     ListProdukByMerekComponent,
-    PesananComponent
+    PesananComponent,
+    PembayaranComponent
   ],
   providers: [
     ProdukService,

@@ -14,7 +14,17 @@
           <label>Deskripsi Produk: </label>{{detailProduk.deskripsi_produk}}
         </div>
         <div class="col-sm-4">
-          <button type="button" class="btn btn-primary" [routerLink]="['/pesanan']">Masukkan ke Pesanan</button>
+
+          <template #popTemplate>
+            <select class="form-control" id="sel1" [(ngModel)]="selectedValue">
+              <option *ngFor="let number of numbers" [value]="number">{{number}}</option>
+            </select>
+            <button type="button" class="btn btn-primary" (click)="addToCart(selectedValue,detailProduk.kode_produk)" [routerLink]="['/pesanan']">Ok</button>
+          </template>
+          <button type="button" class="btn btn-primary" [popover]="popTemplate" popoverTitle="Kuantitas Barang" placement="bottom">
+            Masukkan ke Pesanan
+          </button>
+
             <button type="button" class="btn btn-primary" (click)="addToWishlist(detailProduk.kode_produk,'cendzpm@gmail.com');daftarKeinginanModal.show()">Tambahkan ke Keinginan</button>
             <div bsModal #daftarKeinginanModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-sm">
@@ -26,7 +36,10 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    {{detailProduk.nama_produk}} Telah ditambahkan kedalam Daftar Keinginan Anda.
+                    {{detailProduk.nama_produk}} Telah ditambahkan kedalam Daftar Keinginan Anda.<br><br>
+                    <div style="text-align:center">
+                    <button type="button" class="btn btn-primary" style="background: black"  (click)="daftarKeinginanModal.hide()">Oke</button>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -45,7 +58,16 @@
             Detail Ukuran
           </tab>
           <tab heading="Review" style="height:150px">
-            Review
+            <!-- Left-aligned -->
+              <div class="media" style="padding-top:10px">
+              <div class="media-left">
+                <img src="img_avatar1.png" class="media-object" style="width:60px">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">John Doe</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+              </div>
           </tab>
           <tab heading="Kebijakan Pengembalian" style="height:150px">
             Kebijakan Pengembalian
@@ -56,7 +78,10 @@
         </tabset>
       </div>
       <div>
-        <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-primary" (click)="goBack()">Kembali</button>
+        <br>
+        <br>
+        <br>
       </div>
     </div>
   </div>

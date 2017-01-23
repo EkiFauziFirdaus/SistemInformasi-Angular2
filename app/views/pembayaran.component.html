@@ -1,0 +1,184 @@
+<div class="container" style="padding-top:80px">
+
+<h3>PEMBAYARAN</h3>
+  <accordion style="background: green">
+    <accordion-group heading="Alamat Pengiriman" [isOpen]="true">
+      <div style="text-align: center">
+
+        Jalan Pasirluyu No.376 RT/RW 02/02 Kecamatan.Regol Kelurahan.Pasirluyu Kota.Bandung Provinsi.Jawa Barat
+      <br>
+      <br>
+        <button type="button" class="btn btn-primary" style="background: black">GANTI ALAMAT</button>
+      <br>
+      </div>
+    </accordion-group>
+
+   <accordion-group heading="Cek Ulang Pesanan">
+     <div class="col-sm-8">
+       <div *ngIf="daftarPesanan">
+         <div *ngFor="let item of daftarPesanan">
+
+           <table class="table table-condensed">
+             <tbody>
+               <tr>
+                 <td>Kode Pesanan: {{item.kode_pesanan}}</td>
+               </tr>
+               <tr>
+                 <td>PRODUK</td>
+                 <td>TANGGAL</td>
+                 <td>JUMLAH PESANAN</td>
+                 <td>TOTAL</td>
+               </tr>
+               <tr *ngFor="let barang of item.barangpesanan">
+                 <td><a [routerLink]="['/detail-produk',barang.kode_produk]"><img [src]="barang.gambar" width="20%"/> {{barang.nama_produk}}</a></td>
+                 <td>{{item.waktu_pesanan}}</td>
+                 <td>{{barang.kuantitas}}</td>
+                 <td>Rp.{{barang.kuantitas*barang.harga}}</td>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+       </div>
+     </div>
+
+
+      <div style="text-align:center">
+          <br>
+            <br>
+              <button type="button" class="btn btn-primary" style="background: black" [routerLink]="['/list-produk/kategori','16001']">KEMBALI BERBELANJA</button>
+              <br>
+      </div>
+    </accordion-group>
+
+    <accordion-group heading="Metode Pembayaran">
+     <tabset>
+        <tab heading='Bayar Ditempat'>
+
+        <div class="col-sm-12">
+          <div class="col-sm-2">
+
+          </div>
+          <div class="col-sm-8">
+            <br>
+              <br>
+                <div style="text-align:center">
+                  Pembayaran menggunakan Bayar di Tempat akan dikenakan biaya tambahan sesuai dengan jarak tempuh kota pengiriman dengan kota tujuan, mohon lakukan verifikasi pada email Anda dalam waktu kurang dari 24 jam dan lakukan konfirmasi pembayaran.
+
+                  <br>
+                  <br>
+                <button type="button" class="btn btn-primary" style="background: black"  (click)="pembayaranModal1.show()">LANJUTKAN KE TAHAP AKHIR</button>
+
+                <div bsModal #pembayaranModal1="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title pull-left">Terimakasih</h4>
+                        <button type="button" class="close pull-right" aria-label="Close" [routerLink]="['/list-produk/kategori','16001']">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                         Terimakasih telah berbelanja di JTK Online Store! Silahkan cek email untuk konfirmasi pembayaran.<br><br>
+                         <button type="button" class="btn btn-primary" style="background: black"  [routerLink]="['/list-produk/kategori','16001']">Oke</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                </div>
+          </div>
+          <div class="col-sm-2">
+          </div>
+        </div>
+        </tab>
+
+        <tab>
+          <template tabHeading>Bank Transfer</template>
+            <div class="col-sm-12">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-8">
+            <br>
+              <br>
+                <div style="text-align:center">
+                  Anda dapat melakukan pembayaran denga Bank lainnya, dengan dikenakan biaya tambahan sesuai dengan kebijakan masing-masing Bank.
+                  <br>
+                  Pembayaran menggunakan Bank transfer akan memakan waktu sedikit lebih lama dibandingkan dengan bayar ditempat dan Kartu Kredit dikarenakan membutuhkan proses konfirmasi dan verifikasi untuk mempercepat proses, mohon lakukan pembayaran dalam waktu kurang dari 24 jam dan lakukan konfirmasi pembayaran.
+
+                  <br>
+                  <br>
+                <button type="button" class="btn btn-primary" style="background: black"  (click)="pembayaranModal2.show()">LANJUTKAN KE TAHAP AKHIR</button>
+
+                <div bsModal #pembayaranModal2="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title pull-left">Terimakasih</h4>
+                        <button type="button" class="close pull-right" aria-label="Close" [routerLink]="['/list-produk/kategori','16001']">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                         Terimakasih telah berbelanja di JTK Online Store! Silahkan cek email untuk konfirmasi pembayaran.<br><br>
+                         <button type="button" class="btn btn-primary" style="background: black"  [routerLink]="['/list-produk/kategori','16001']">Oke</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                </div>
+          </div>
+          <div class="col-sm-2">
+          </div>
+        </div>
+        </tab>
+
+        <tab>
+          <template tabHeading>Kartu Kredit</template>
+            <div class="col-sm-12">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-8">
+            <br>
+              <br>
+                <div style="text-align:center">
+                  Anda dapat melakukan pembayaran dengan Kartu Kredit Bank lainnya, dengan dikenakan biaya tambahan sesuai dengan kebijakan masing-masing Bank yang menyediakan Kartu Kredit terkait. Mohon lakukan verifikasi pada email Anda dalam waktu kurang dari 24 jam dan lakukan konfirmasi pembayaran.
+
+                  <br>
+                  <br>
+                <button type="button" class="btn btn-primary" style="background: black"  (click)="pembayaranModal3.show()">LANJUTKAN KE TAHAP AKHIR</button>
+
+                <div bsModal #pembayaranModal3="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title pull-left">Terimakasih</h4>
+                        <button type="button" class="close pull-right" aria-label="Close" [routerLink]="['/list-produk/kategori','16001']">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                         Terimakasih telah berbelanja di JTK Online Store! Silahkan cek email untuk konfirmasi pembayaran.<br><br>
+                         <button type="button" class="btn btn-primary" style="background: black"  [routerLink]="['/list-produk/kategori','16001']">Oke</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                </div>
+          </div>
+          <div class="col-sm-2">
+          </div>
+        </div>
+        </tab>
+    </tabset>
+    </accordion-group>
+  </accordion>
+  <br>
+  <br>
+  <br>
+
+
+
+
+</div>

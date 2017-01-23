@@ -315,34 +315,6 @@ export let fakeBackendProvider = {
                 },
                 kuantitas:1,
                 kode_pesanan:'201612230844002'
-              },
-              {
-                id_barang_pesanan:0,
-                kode_produk:
-                {
-                  kode_produk:'2016125503',
-                  nama_produk:'Oppo F1',
-                  hargabarang:
-                  [
-                    {
-                      latest_harga:1580000,
-                      hargabarang__kode_produk:1580000,
-                      latest_date:'2017-01-12T00:00:00Z'
-                    }
-                  ],
-                  diskon:
-                  [
-                    {
-                      latest_diskon:10,
-                      latest_date:'2017-01-12T00:00:00Z',
-                      diskon__kode_produk:10
-                    }
-                  ],
-                  stok:9,
-                  gambar: '../app/assets/img/produk/oppo/f1.jpg'
-                },
-                kuantitas:1,
-                kode_pesanan:'201612230844002'
               }
             ],
             waktu_pesanan:'2016-12-27T01:44:00Z',
@@ -550,6 +522,42 @@ export let fakeBackendProvider = {
                       email: wishlist.email
                     }
                   );
+                }
+
+                if (connection.request.url.endsWith('/api/daftar-pesanan/post') && connection.request.method === RequestMethod.Post) {
+                  let barangPesanan = JSON.parse(connection.request.getBody());
+                  let barang = detailProduk.filter(barang => {return barang.kode_produk === barangPesanan.kode_produk});
+                  daftarPesanan[0].barangpesanan.push(
+                    {
+                      id_barang_pesanan:0,
+                      kode_produk:
+                      {
+                        kode_produk:barang[0].kode_produk,
+                        nama_produk:barang[0].nama_produk,
+                        hargabarang:
+                        [
+                          {
+                            latest_harga:barang[0].hargabarang[0].harga,
+                            hargabarang__kode_produk:barang[0].hargabarang[0].harga,
+                            latest_date:barang[0].hargabarang[0].waktuharga
+                          }
+                        ],
+                        diskon:
+                        [
+                          {
+                            latest_diskon:barang[0].diskon[0].besar_diskon,
+                            latest_date:barang[0].diskon[0].waktu_diskon,
+                            diskon__kode_produk:barang[0].diskon[0].besar_diskon
+                          }
+                        ],
+                        stok:barang[0].stok,
+                        gambar: barang[0].gambar
+                      },
+                      kuantitas:barangPesanan.kuantitas,
+                      kode_pesanan:barangPesanan.kode_pesanan
+                    }
+                  );
+                  console.log(daftarPesanan[0]);
                 }
 
             }, 500);

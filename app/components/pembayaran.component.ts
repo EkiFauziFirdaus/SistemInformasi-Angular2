@@ -5,13 +5,11 @@ import { PelangganService } from '../services/pelanggan.service';
 import { DaftarPesanan } from '../models/daftar-pesanan.model';
 
 @Component({
-  selector: 'pesanan-component',
+  selector: 'pembayaran-component',
   moduleId: module.id,
-  templateUrl: '../views/pesanan.component.html',
+  templateUrl: '../views/pembayaran.component.html',
 })
-
-export class PesananComponent implements OnInit{
-
+export class PembayaranComponent implements OnInit{
   daftarPesanan:DaftarPesanan[];
   totalBelanja: number;
 

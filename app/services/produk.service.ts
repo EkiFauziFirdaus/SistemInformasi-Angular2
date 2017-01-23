@@ -46,7 +46,7 @@ export class ProdukService{
       }
     ).toPromise().catch(this.handleError);
   }
-  
+
   getProdukByMerek(kodeMerek: string): Promise<Produk[]>{
     return this.http.get(this.apiUrl+"/merek/"+kodeMerek)
     .map(

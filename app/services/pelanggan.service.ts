@@ -93,4 +93,10 @@ export class PelangganService{
     .post(this.apiUrl+'/daftar-keinginan/post/'+email, JSON.stringify({tanggal_terdaftar: tanggal,kode_produk: kode_produk,email: email}),{headers: this.headers})
     .map((response: Response) => response.json());
   }
+
+  addToCart(kuantitas: number, kode_produk: string, kode_pesanan: string){
+    return this.http
+    .post(this.apiUrl+'/daftar-pesanan/post', JSON.stringify({kuantitas: kuantitas,kode_produk: kode_produk,kode_pesanan: kode_pesanan}),{headers: this.headers})
+    .map((response: Response) => response.json());
+  }
 }
