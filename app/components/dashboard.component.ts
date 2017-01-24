@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit{
 
   /*CAROUSEL SECTION START*/
   public slideProduk: Produk[];
-  public myInterval: number = 1500; //from documentation
+  public carouselInterval: number = 1500; //from documentation
   public activeSlideIndex: number; //from documentation
 
   public addSlide():void{

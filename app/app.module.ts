@@ -20,6 +20,7 @@ import { CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { PopoverModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { CarouselModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent }  from './app.component';
 import { DashboardComponent } from './components/dashboard.component';
@@ -95,7 +96,8 @@ import { KategoriService } from './services/kategori.service'
     CollapseModule.forRoot(),
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
-    PopoverModule.forRoot()
+    PopoverModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   declarations: [
     AppComponent,
